@@ -5,3 +5,5 @@ Resource    variables.robot
 openNewBrowser
     [Arguments]    ${url}
     Open Browser    ${url}    Chrome
+closeBrowser
+    Close All Browsers
