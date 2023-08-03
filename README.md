@@ -1,25 +1,25 @@
 # RFW-IVVQ
 This is a 2 days project which goal is to automate functionnal tests on [www.raja.com](www.raja.com)
-1. CONNECT: 3 different cases
-    a.. valid credentials
-    b. missing credentials
-    c. unvalid credentials
+1. AUTHENTIFICATION: 3 different cases
+    1. valid credentials
+    2. missing credentials: DONE
+    3. unvalid credentials: DONE
 
 2. CREATE A NEW USER
-    a. valid credentials
-    b. missing credentials
-    c. unvalid credentials
+    1. valid credentials
+    2. missing credentials
+    3. unvalid credentials
 
 3. SEARCH AND SORT PRODUCTS
-    a. recherche de produit
-    b. tri
-    c. séléction d'un produit
-    d. séléction quantité
-    e. ajout panier
-    f. voir le panier
+    1. recherche de produit
+    2. tri
+    3. séléction d'un produit
+    4. séléction quantité
+    5. ajout panier
+    6. voir le panier
 
 4. CHECKOUT
-    a. validate bucket
-    b. validate delivery
-    c. validate payment
-    d. enter payment information and validate
+    1. validate bucket
+    2. validate delivery
+    3. validate payment
+    4. enter payment information and validate
