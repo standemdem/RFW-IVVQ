@@ -1,7 +1,7 @@
 # RFW-IVVQ
 This is a 2 days project which goal is to automate functionnal tests on [www.raja.com](www.raja.com)
 1. CONNECT: 3 different cases
-    a. valid credentials
+    a.. valid credentials
     b. missing credentials
     c. unvalid credentials
 
