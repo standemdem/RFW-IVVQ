@@ -51,10 +51,18 @@ Scroll To Element
     Execute Javascript  window.scrollTo(${x}, ${y})
 
 get elem from Excel
-    [Arguments]    ${file_name}    ${sheet_name}    @{args}
+    [Arguments]    ${file_name}    ${sheet_name}
     Open Excel Document    ${file_name}   ${sheet_name}
     ${email}=    Read Excel Cell    2    3
     ${pwd}=    Read Excel Cell    2    4
     Log To Console    ${email} ${pwd}
     [Return]    ${email}    ${pwd}
     Close All Excel Documents
+get items from Excel
+    [Arguments]    ${file}    ${sheet}
+    Open Excel Document    ${file}     ${sheet}
+    @{option_names}=    Read Excel Row    1
+    Log To Console    ${option_names}
+    @{option_values}=    Read Excel Row    2
+        
+    # END

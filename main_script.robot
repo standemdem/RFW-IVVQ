@@ -13,7 +13,10 @@ LOGGING TESTS
     ${phone}=    Phone Number
     Log To Console    ${phone}
     Log To Console    ${products}[0]
-    get elem from Excel    ${excel_file}  1
+    get items from Excel    ${excel_file}    produit
+    ${row}=     Read Excel Column    1
+    ${count}=    Evaluate    len(${row})
+    Log To Console    ${row} ${count}
 #################################################################
 #########             AUTHENTIFICATION                    #######
 #################################################################
