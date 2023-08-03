@@ -2,13 +2,18 @@
 Library    FakerLibrary    locale=fr_FR
 resource     resources/keyword.robot
 resource    resources/variables.robot
-Test Setup    openNewBrowser    ${url}    ${browser}    ${cookie_xpath}
+Library    ExcelLibrary
+Library    XML
+# Test Setup    openNewBrowser    ${url}    ${browser}    ${cookie_xpath}
+
 *** Test Cases ***
 LOGGING TESTS
     ${email}=    Email
     Log To Console   ${email}
     ${phone}=    Phone Number
     Log To Console    ${phone}
+    Log To Console    ${products}[0]
+    get elem from Excel    ${excel_file}  1
 #################################################################
 #########             AUTHENTIFICATION                    #######
 #################################################################
@@ -38,3 +43,21 @@ LOGGING TESTS
     connectUser    ${valid_user}    ${valid_pwd}
     ${class}=    Get Element Attribute    xpath=//*[@id="dropdown-account"]    class
     Should Contain    ${class}    is-connected
+
+# 4 Search a Product
+    
+    # click on search bar to display search popup
+    Click Element    xpath=//*[@id="algolia-loader"]
+    Sleep    1.8
+    # write in search bar
+    Input Text    xpath=//*[@id="searchAlgolia"]/div[1]/section/div/div/input    ${products}[0]
+    Sleep    0.9
+    # select 2nd element
+    Click Element     xpath=//*[@id="scroll-horizontal-wrapper"]/div/button[2]
+    Sleep    1.3
+    Click Element     xpath=//*[@id="searchAlgolia"]/div[1]/div[1]/div[3]/div[3]/div[1]
+    Scroll To Element    //*[@id="variations-table-sorters"]
+    Sleep    0.7
+
+    Click Element    xpath=//*[@id="btn-quantity-more-3739H4866-desktop"]
+    keyword.closeBrowser
