@@ -58,11 +58,20 @@ get elem from Excel
     Log To Console    ${email} ${pwd}
     [Return]    ${email}    ${pwd}
     Close All Excel Documents
+
 get items from Excel
     [Arguments]    ${file}    ${sheet}
     Open Excel Document    ${file}     ${sheet}
+    # get all columns in a list
+    # get number of columns
     @{option_names}=    Read Excel Row    1
-    Log To Console    ${option_names}
-    @{option_values}=    Read Excel Row    2
+    ${num_of_col}=    Evaluate    len(@{option_names})
+    Log To Console    ${option_names} ${num_of_col}
+    # get all columns in a list
+    # get number of rows
+    @{option_values}=    Read Excel Column    1
+    ${num_of_rows}=    Evaluate    len(@{option_values})
+    Log To Console    ${option_values} ${num_of_rows}
+    Close All Excel Documents
         
     # END
