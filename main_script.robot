@@ -2,7 +2,7 @@
 Library    FakerLibrary    locale=fr_FR
 resource     resources/keyword.robot
 resource    resources/variables.robot
-# Test Setup    openNewBrowser    ${url}    ${browser}    ${cookie_xpath}
+Test Setup    openNewBrowser    ${url}    ${browser}    ${cookie_xpath}
 *** Test Cases ***
 LOGGING TESTS
     ${email}=    Email
@@ -36,5 +36,5 @@ LOGGING TESTS
 3 Check Auth with valid credentials
     openConnectionPopup    ${connexion_popup}
     connectUser    ${valid_user}    ${valid_pwd}
-
-4
+    ${class}=    Get Element Attribute    xpath=//*[@id="dropdown-account"]    class
+    Should Contain    ${class}    is-connected
