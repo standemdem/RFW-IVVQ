@@ -10,6 +10,7 @@ openNewBrowser
     Open Browser    ${url}    ${browser}
     # close cookies popup window
     Click Element    ${x_path}
+    Maximize Browser Window
     Sleep    1
 closeBrowser
     Close All Browsers
@@ -34,47 +35,26 @@ connectUser
     Sleep    3
 
 
-Ouverture pour user invalide
-    Open Browser    ${URL}    ${BROWSER}
-    Maximize Browser Window  
-    Sleep    2
-    Click Element    xpath=/html/body/div[4]/div[2]/div/button[2] 
-    Sleep    2  
-   
-User Invalid
-    Click Button    xpath=//*[@id="dropdown-account"]/button
-    Sleep    2
-    Input Text    xpath=//*[@id="UserLoginDropdown"]    ${Email_invalid}
-    Sleep    2
-    Input Password    xpath=//*[@id="UserPasswordDropdown"]    ${mdp}
-    Sleep    2
-    Click Button    xpath=//*[@id="dropdownConnexion"]/div[3]/button
-    Sleep    2
-    Click Element    xpath=//*[@id="dropdown-block"]/section/a[9]
-    Sleep    2
-
-Création d’un profil
-    Click Button    xpath=//*[@id="dropdown-account"]/button
-    Sleep    2
-    Click Button    xpath=//*[@id="redirectCreateAccount"]
-    Sleep    2
-    ${email}=       FakerLibrary.email    /html/body/main/div/section[2]/div[2]/div[1]/form/div/div[2]/div/fieldset/input
-    Log To Console    ${email}
-    Sleep    2
-   
+                    #################################################################
+                    #########             CREATE PROFILE                      #######
+                    #################################################################
 
 
-    Sleep    2
+                    #################################################################
+                    #########             SEARCH /FILTER PRODUCT              #######
+                    #################################################################
 
-#CREATE A NEW USER case: valid credentials
-New_USER with valid credentials
-    # open    Browser    ${website_url}
-    Sleep        20
-    Click Element   xpath=/html/body/div[4]/div[2]/button
-    Sleep   5
-    Click Button    xpath=//*[@id="dropdown-account"]/button
-    Sleep  6
-    Click Button    xpath=//*[@id="redirectCreateAccount"] 
-    Sleep   4
-    Click Element   xpath=//*[@id="userInfoForm"]/div/fieldset/div[2]/label/span
-    Sleep     6
+Scroll To Element
+    [Arguments]  ${locator}
+    ${x}=        Get Horizontal Position  ${locator}
+    ${y}=        Get Vertical Position    ${locator}
+    Execute Javascript  window.scrollTo(${x}, ${y})
+
+get elem from Excel
+    [Arguments]    ${file_name}    ${sheet_name}    @{args}
+    Open Excel Document    ${file_name}   ${sheet_name}
+    ${email}=    Read Excel Cell    2    3
+    ${pwd}=    Read Excel Cell    2    4
+    Log To Console    ${email} ${pwd}
+    [Return]    ${email}    ${pwd}
+    Close All Excel Documents
