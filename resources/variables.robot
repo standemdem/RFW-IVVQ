@@ -1,6 +1,3 @@
-*** Settings ***
-Library    FakerLibrary
-Library    ExcelLibrary
 *** Variables ***
 #################################################################
 #########             BROWSER MANAGEMENT                  #######
@@ -22,6 +19,18 @@ ${valid_user}=    stan.demontmarin@gmail.com
 ${valid_pwd}=    Ajcformation08
 ${unvalid_user}=    unvalid
 ${unvalid_pwd}=    Ajcformation08
+
+${email}   
+${mot de passe} 
+${Telephone} 
+${password} 
+${FirstName}
+${LastName}
+${adress} 
+${ZIP Code} 
+${Town}
+
+
 
 #################################################################
 #########             SEARCH AND SELECT                   #######
