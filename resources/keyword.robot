@@ -50,7 +50,7 @@ Scroll To Element
     ${y}=        Get Vertical Position    ${locator}
     Execute Javascript  window.scrollTo(${x}, ${y})
 
-get elem from Excel
+get_user_excel
     [Arguments]    ${file_name}    ${sheet_name}
     Open Excel Document    ${file_name}   ${sheet_name}
     ${email}=    Read Excel Cell    2    3
@@ -59,7 +59,7 @@ get elem from Excel
     [Return]    ${email}    ${pwd}
     Close All Excel Documents
 
-get items from Excel
+get_items_from_Excel
     [Arguments]    ${file}    ${sheet}
     Open Excel Document    ${file}     ${sheet}
     # get all columns in a list
@@ -74,4 +74,11 @@ get items from Excel
     Log To Console    ${option_values} ${num_of_rows}
     Close All Excel Documents
         
-    # END
+get_col_values
+    [Arguments]    ${file}    ${sheet}    ${col}
+    Open Excel Document    ${file}     ${sheet}
+    @{col_values}=    Read Excel Column    ${col}
+    Log To Console    ${col_values}
+    Close All Excel Documents
+    RETURN    @{col_values}
+    

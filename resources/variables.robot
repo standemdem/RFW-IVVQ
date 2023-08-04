@@ -23,5 +23,7 @@ ${valid_pwd}=    Ajcformation08
 ${unvalid_user}=    unvalid
 ${unvalid_pwd}=    Ajcformation08
 
-
-@{products}=    Ruban    Sachet    Colis    Carton
+#################################################################
+#########             SEARCH AND SELECT                   #######
+#################################################################
+${quantity}=    120
